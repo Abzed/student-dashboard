@@ -1,0 +1,61 @@
+<div class="container-fluid p-3">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Student Dashboard</h1>
+          <h2 *ngIf="user.username" class="display-5">Welcome <strong><b><u>{{ user.username }}</u></b></strong></h2>
+          <p class="lead">Welcome to student management portal.</p>
+        </div>
+      </div>
+</div>
+<div class="container">
+  <p>Picture LINK :</p>
+    <table class="table align-middle mb-0 bg-white">
+        <thead class="bg-light">
+          <tr>
+            <th>Student Name</th>
+            <th>Location</th>
+            <th>Stack</th>
+            <th>Class</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let student of students">            
+            <td>
+              <div class="d-flex align-items-center">
+                <img
+                    src="https://res.cloudinary.com/buildsoko-images/{{ student.avatar }}"
+                    alt=""
+                    style="width: 45px; height: 45px"
+                    class="rounded-circle"
+                    />
+                <div class="ms-3">
+                  <p class="fw-bold mb-1">{{ student.account.first_name }} {{student.account.last_name }}</p>
+                  <p class="text-muted mb-0">{{student.account.email }}</p>
+                </div>
+              </div>
+            </td>
+            <td>
+              <p class="fw-normal mb-1">{{student.location }}</p>
+              <p class="text-muted mb-0">IT department</p>
+            </td>
+            <td>
+              <span class="badge badge-success rounded-pill d-inline">{{student.stack }}</span>
+            </td>
+            <td>MC-31</td>
+            <td>
+              <button type="button" class="btn btn-link btn-sm btn-rounded">
+                Edit
+              </button>
+              <button type="button" class="btn btn-link btn-sm btn-rounded">
+                Delete
+              </button>
+            </td>
+          </tr>
+         
+        </tbody>
+      </table>
+
+      <button type="button" class="btn btn-outline-success mt-5"><a routerLink="/new-student">Add New Student</a></button>
+
+</div>

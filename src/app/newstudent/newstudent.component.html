@@ -1,0 +1,100 @@
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="card card-container mt-5">
+            <h3 class="my-4">Add New Student Form</h3>
+
+            <form
+              name="form"
+              (ngSubmit)="f.form.valid && saveStudent()"
+              #f="ngForm"
+              novalidate
+            >
+
+            <div class="form-group">
+                <label for="avatar">Profile Picture</label>
+                <!-- <input id="fakeupload" name="fakeupload[]" class="inputfile fakeupload" type="text" />
+
+                <input id="path" name="path[]" class="inputfile form-control realupload" type="file" value="" 
+                onchange="javascript:document.getElementById('fakeupload').value = document.getElementById('path').files[0].name;;" /> -->
+
+                <input
+                (change)="onFileSelected($event)"
+                  type="file" 
+                  id="avatar" 
+                  class="form-control"
+                  name="avatar" 
+                />
+
+              </div>
+
+              <div class="form-group">
+                <label for="gender">Gender</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="gender"
+                  [(ngModel)]="students.gender"
+                  required
+                />
+                <div
+                  class="alert alert-danger"
+                  role="alert"
+                  *ngIf="students.gender.errors && f.submitted"
+                >
+                  Gender is required!
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="location">Location</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="location"
+                  [(ngModel)]="students.location"
+                  required
+
+                />
+                <div
+                  class="alert alert-danger"
+                  role="alert"
+                  *ngIf="students.location.errors && f.submitted"
+                >
+                  <div *ngIf="students.location.errors.required">Location is required</div>
+
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="stack">Stacks</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="stack"
+                  [(ngModel)]="students.stack"
+                  required
+
+                />
+                <div
+                  class="alert alert-danger"
+                  role="alert"
+                  *ngIf="students.stack.errors && f.submitted"
+                >
+                  <div *ngIf="students.stack.errors.required">Stack is required</div>
+
+                </div>
+              </div>
+
+              <div class="form-group">
+                <button class="btn btn-primary btn-block mt-4">
+                  Create
+                </button>
+              </div>
+
+            </form>
+
+          </div>
+    </div>
+    <div class="col-md-3"></div>
+</div>
