@@ -28,6 +28,9 @@ export class HomeComponent implements OnInit {
     first_name: '',
     last_name: '',
     email: '',
+    avatar: '',
+    gender: '',
+    password: '',
   }
 
   constructor(private userService: UserService, private tokenStorage: TokenStorageService) { }
@@ -35,12 +38,13 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getAllStudents().subscribe(
       data => {
-        console.log(data.data[0]);
-        this.students = data.data
+        console.log(data.students[0]);
+        this.students = data.students;
         this.user.username = this.tokenStorage.getUser().username
         this.user.first_name = this.tokenStorage.getUser().first_name
         this.user.last_name = this.tokenStorage.getUser().last_name
         this.user.email = this.tokenStorage.getUser().email
+        this.user.avatar = this.tokenStorage.getUser().avatar
         
         this.isLoggedIn = true
       },

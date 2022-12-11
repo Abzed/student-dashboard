@@ -10,10 +10,10 @@ import { ApiserviceService } from '../apiservice.service';
 export class NewstudentComponent implements OnInit {
 
     students: Students = {
-    account: {username: 'student07', first_name: 'Student', last_name: '07', email: 'student07@ms.com', password: 'Zed.z1z0'},
-    avatar: '',
-    gender:'',
+    account: {username: 'student07', first_name: 'Student', last_name: '07', email: 'student07@ms.com', gender: "Male", password: 'Zed.z1z0', avatar: "img.png"},
     location: '',
+    joined_on: '',
+    payment: '',
     stack:''
   }
 
@@ -25,9 +25,9 @@ export class NewstudentComponent implements OnInit {
     // console.log(event.target.file[0].name);
     if (event.target != null) {
       // if (event.target.files && event.target.files[0]) {  
-      this.students.avatar = (event.target as HTMLInputElement).files
-      this.students.avatar = this.students.avatar[0]
-      console.log(this.students.avatar);
+      this.students.account.avatar = (event.target as HTMLInputElement).files
+      this.students.account.avatar = this.students.account.avatar[0]
+      console.log(this.students.account.avatar);
       
     }
   }
@@ -37,8 +37,8 @@ export class NewstudentComponent implements OnInit {
   saveStudent(): void {
     const data = {
       account: this.students.account,
-      avatar: this.students.avatar,
-      gender: this.students.gender,
+      avatar: this.students.account.avatar,
+      gender: this.students.account.gender,
       location: this.students.location,
       stack: this.students.stack,
     };

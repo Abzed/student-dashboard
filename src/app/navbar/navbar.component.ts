@@ -15,6 +15,7 @@ export class NavbarComponent implements OnInit {
   showAdminBoard = false;
   showModeratorBoard = false;
   username?: string;
+  avatar?: string;
 
   constructor(private tokenStorageService: TokenStorageService) { }
 
@@ -28,6 +29,7 @@ export class NavbarComponent implements OnInit {
       this.showAdminBoard = false;
       this.showModeratorBoard = false;
       this.username = user.username;
+      this.avatar = user.avatar;
     }
   }
   

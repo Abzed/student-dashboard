@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Students } from '../apiclass';
 
-const url = 'https://django-rest-tut-api.herokuapp.com/api/students'
+const url = 'https://student-management-3kzu.onrender.com/api/students'
 
 @Injectable({
   providedIn: 'root'

@@ -2,16 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router'; 
 import { AuthService } from '../_services/auth.service';
 import { TokenStorageService } from '../_services/token-storage.service';
-import jwt_decode from 'jwt-decode';
 import { NgForm } from '@angular/forms';
 import { Auth } from '../apiclass';
 import { first } from 'rxjs/operators';
+import jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent implements OnInit {
 
   form: Auth = {
@@ -51,6 +52,7 @@ export class LoginComponent implements OnInit {
       },
       err => {
         this.errorMessage = err.error.message;
+        console.log(this.errorMessage);        
         this.isLoginFailed = true;
       }
     );

@@ -34,13 +34,13 @@
                   type="text"
                   class="form-control"
                   name="gender"
-                  [(ngModel)]="students.gender"
+                  [(ngModel)]="students.account.gender"
                   required
                 />
                 <div
                   class="alert alert-danger"
                   role="alert"
-                  *ngIf="students.gender.errors && f.submitted"
+                  *ngIf="students.account.gender.errors && f.submitted"
                 >
                   Gender is required!
                 </div>

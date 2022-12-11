@@ -3,12 +3,12 @@
         <div class="container">
           <h1 class="display-4">Student Dashboard</h1>
           <h2 *ngIf="user.username" class="display-5">Welcome <strong><b><u>{{ user.username }}</u></b></strong></h2>
-          <p class="lead">Welcome to student management portal.</p>
+          <p class="lead">Student management portal.</p>
         </div>
       </div>
 </div>
 <div class="container">
-  <p>Picture LINK :</p>
+  <p>Picture LINK : {{user.avatar}}</p>
     <table class="table align-middle mb-0 bg-white">
         <thead class="bg-light">
           <tr>
@@ -24,7 +24,7 @@
             <td>
               <div class="d-flex align-items-center">
                 <img
-                    src="https://res.cloudinary.com/buildsoko-images/{{ student.avatar }}"
+                    src="https://res.cloudinary.com/abzedmohammed/{{ student.avatar }}"
                     alt=""
                     style="width: 45px; height: 45px"
                     class="rounded-circle"
